@@ -14,6 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Button } from '@material-ui/core';
+import { useAuth } from '../../contexts/AuthContext';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -84,6 +86,7 @@ export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
+  const { registerUser, user, logOut } = useAuth();
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -171,7 +174,6 @@ export default function Header() {
             color="inherit"
             aria-label="open drawer"
           >
-            {/* <MenuIcon /> */}
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             Delivery
@@ -191,16 +193,20 @@ export default function Header() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+          {user ? (
+              <>
+                <p>{user.email}</p>
+                <IconButton onClick={() => logOut()}>
+                  <Button variant="contained">Log out</Button>
+                </IconButton>
+              </>
+            ) : (
+              <IconButton color="inherit">
+                <Button onClick={() => registerUser()} variant="contained">
+                  Sign Up
+                </Button>
+              </IconButton>
+            )}
             <IconButton
               edge="end"
               aria-label="account of current user"

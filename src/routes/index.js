@@ -1,19 +1,17 @@
-import { Router } from '@material-ui/icons'
-import React from 'react'
-import { Route, Routes } from 'react-router'
-import { BrowserRouter } from 'react-router-dom'
-import MainLayout from '../layouts/MainLayout'
-import MainPage from '../pages/MainPage'
+import React from 'react';
+import { Route, Routes } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import AuthContext from '../contexts/AuthContext';
+import AuthPage from '../pages/AuthPage';
+import MainPage from '../pages/MainPage';
 
 const AppRoutes = () => {
-   return (
-   <BrowserRouter>
-      <Routes>
-         <Route path = "/" element = {<MainPage />}/>
-      </Routes>
-      </BrowserRouter>
-   )
-}
+  return (
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/register" element={<AuthPage />} />
+    </Routes>
+  );
+};
 
-export default AppRoutes
-
+export default AppRoutes;

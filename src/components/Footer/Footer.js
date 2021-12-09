@@ -1,47 +1,46 @@
-import React from "react";
+import { Button, IconButton } from '@material-ui/core';
+import React from 'react';
 import {
-    Box,
-    Container,
-    Row,
-    Column,
-    FooterLink,
-    Heading,
-} from "./FooterStyles";
+  Box,
+  Container,
+  Row,
+  Column,
+  FooterLink,
+  Heading,
+} from './FooterStyles';
 
 const Footer = () => {
-    return (
-        <Box>
-            <Container>
-                <Row>
-                    <Column>
-                        <Heading>Address</Heading>
-                        <FooterLink href="#">Табышалиева 29</FooterLink>
-                    </Column>
+  return (
+    <Box>
+      <Container>
+        <Row>
+          <Column>
+            <Heading>Address</Heading>
+            <FooterLink href="#">Табышалиева 29</FooterLink>
+          </Column>
 
-                    <Column>
-                        <Heading>Social Media</Heading>
+          <Column>
+            <Heading>Social Media</Heading>
 
-                        <FooterLink href="#">
-                            <i className="fab fa-instagram">
-                                <span
-                                    style={{
-                                        marginLeft: "10px",
-                                        
-                                    }}
-                                >
-                                    Instagram
-                                </span>
-                            </i>
-                        </FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>Сontact us</Heading>
-                        <FooterLink href="#">+996704500083</FooterLink>
-                    </Column>
-                </Row>
-            </Container>
-        </Box>
-    );
+            <FooterLink href="#">
+              <i className="fab fa-instagram">
+                <span
+                  style={{
+                    marginLeft: '10px',
+                  }}
+                >
+                  Instagram
+                </span>
+              </i>
+            </FooterLink>
+          </Column>
+          <Column>
+            <Heading>Сontact us</Heading>
+            <FooterLink href="#">+996704500083</FooterLink>
+          </Column>
+        </Row>
+      </Container>
+    </Box>
+  );
 };
 export default Footer;
-

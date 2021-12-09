@@ -7,7 +7,6 @@ const MainPage = () => {
       <MainLayout>
             <Box p={5}>
                 <Grid container spacing={3}>
-                    {/* <Sidebar /> */}
                     {/* <Content /> */}
                 </Grid>
             </Box>
